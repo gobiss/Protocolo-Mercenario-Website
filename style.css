@@ -1,0 +1,245 @@
+:root {
+    --bg-color: #050505;
+    --primary: #10b981;    /* Verde */
+    --secondary: #1f2937;  /* Cinza Escuro */
+    --accent: #9f1239;     /* Vermelho Toji */
+    --energy: #d1d5db;     /* Cinza Claro */
+    --text: #e5e5e5;       /* Branco */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text);
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Títulos Principais */
+h1, h2, h3, .logo, .mission-title, .section-title, .amount {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.top-border {
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    width: 100%; position: fixed; top: 0; z-index: 1000;
+}
+
+/* HEADER MINIMALISTA */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; }
+.accent-text { color: var(--accent); }
+
+/* STATUS NO HEADER */
+.status-indicator-header {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--primary); font-size: 0.8rem; font-weight: bold;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 8px 15px;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.pulse {
+    width: 8px; height: 8px; background-color: var(--primary);
+    border-radius: 50%; box-shadow: 0 0 10px var(--primary);
+    animation: pulseAnim 2s infinite;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 80vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 0 5%; border-bottom: 1px solid #1f2937;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.95; margin-bottom: 1.5rem; color: var(--text);
+}
+
+/* Highlight simples no lugar do glitch */
+.highlight-text {
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+.briefing {
+    max-width: 600px; color: var(--energy); margin-bottom: 3rem;
+    line-height: 1.6; border-left: 2px solid var(--accent); padding-left: 1rem;
+}
+
+/* BOTÕES HERO */
+.cta-container {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+}
+
+.secondary-btn {
+    display: inline-block; padding: 1rem 2rem;
+    font-family: 'Oswald', sans-serif; font-size: 1rem;
+    text-transform: uppercase; text-decoration: none;
+    border: 1px solid var(--energy); color: var(--energy); transition: 0.3s;
+    background: transparent;
+}
+.secondary-btn:hover {
+    border-color: var(--primary); color: var(--bg-color);
+    background-color: var(--primary);
+}
+
+/* SEÇÃO ARSENAL */
+.features { padding: 5rem 5%; background-color: #080808; }
+.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
+.section-header h2 { color: var(--energy); font-size: 2rem; }
+.line { height: 1px; background-color: var(--secondary); flex-grow: 1; }
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--secondary); padding: 2rem; position: relative;
+    border: 1px solid transparent; transition: 0.3s; overflow: hidden; height: 100%;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-5px); }
+.card-icon { font-size: 2rem; margin-bottom: 1rem; filter: grayscale(100%); }
+.card h3 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.3rem; }
+.card p { color: var(--energy); font-size: 0.9rem; line-height: 1.5; }
+.card-border {
+    position: absolute; bottom: 0; left: 0; width: 0%; height: 3px;
+    background-color: var(--accent); transition: 0.3s;
+}
+.card:hover .card-border { width: 100%; }
+
+/* SEÇÃO MISSÃO */
+.mission-section {
+    padding: 6rem 5%; background-color: var(--bg-color);
+    border-top: 1px solid var(--secondary); display: flex; justify-content: center;
+}
+.mission-container {
+    max-width: 800px; text-align: center; border: 1px solid var(--secondary);
+    padding: 3rem; background: radial-gradient(circle at center, #0f0f0f 0%, #000 100%);
+    position: relative;
+}
+.mission-container::before, .mission-container::after {
+    content: ''; position: absolute; width: 20px; height: 20px; border-color: var(--primary); border-style: solid;
+}
+.mission-container::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.mission-container::after { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+.mission-title { font-size: 2.5rem; color: var(--text); margin-bottom: 2rem; letter-spacing: 2px; }
+.mission-text-box p { color: var(--energy); line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.1rem; }
+.highlight-mission-text { color: var(--primary); font-weight: bold; font-size: 1.2rem; }
+.objective-box {
+    margin-top: 2rem; padding: 1.5rem; background-color: rgba(159, 18, 57, 0.1);
+    border: 1px solid var(--accent); display: inline-block;
+}
+.objective-box span { display: block; font-size: 0.8rem; color: var(--energy); margin-bottom: 5px; }
+.objective-box strong { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent); letter-spacing: 1px; }
+
+/* --- NOVA SEÇÃO CONTRATO (PROFISSIONAL) --- */
+.contract-section {
+    padding: 6rem 5%; text-align: center; background: #080808;
+    border-top: 1px solid var(--secondary);
+}
+
+.section-subtitle { color: var(--energy); margin-bottom: 3rem; }
+
+.offer-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--secondary);
+    border: 1px solid var(--primary);
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+    text-align: left; /* Alinhamento interno à esquerda */
+}
+
+/* Cabeçalho da Oferta */
+.offer-header {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;
+}
+.offer-header h3 {
+    font-size: 1.8rem; color: var(--text); margin: 0;
+}
+.offer-badge {
+    background-color: var(--accent); color: var(--text);
+    font-size: 0.7rem; font-weight: bold; padding: 5px 10px;
+    text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* Preço */
+.price-container { margin-bottom: 2.5rem; text-align: center; }
+.old-price {
+    display: block; text-decoration: line-through; color: var(--energy);
+    font-size: 1rem; opacity: 0.7; margin-bottom: 5px;
+}
+.current-price {
+    color: var(--primary); display: flex; justify-content: center; align-items: flex-start;
+}
+.currency { font-size: 1.5rem; margin-right: 5px; margin-top: 5px; }
+.amount { font-size: 4rem; line-height: 1; font-weight: 700; text-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+.price-note { display: block; color: var(--energy); font-size: 0.8rem; margin-top: 10px; }
+
+/* Lista de Benefícios */
+.benefits-list {
+    list-style: none; padding: 0; margin-bottom: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem; padding-bottom: 1.5rem;
+}
+.benefits-list li {
+    margin-bottom: 1rem; color: var(--energy); display: flex; align-items: center;
+    font-size: 1rem;
+}
+.benefits-list li:last-child { margin-bottom: 0; }
+.check-icon { color: var(--primary); margin-right: 12px; font-weight: bold; }
+
+/* Botão de Compra */
+.primary-btn {
+    display: inline-block; padding: 1.5rem 2rem;
+    background-color: var(--accent); color: var(--text);
+    font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: bold;
+    text-decoration: none; clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+    transition: 0.3s; letter-spacing: 1px; text-align: center;
+}
+.full-width-btn { width: 100%; }
+.primary-btn:hover { background-color: #be123c; transform: scale(1.02); box-shadow: 0 0 25px rgba(159, 18, 57, 0.4); }
+
+.security-note {
+    text-align: center; color: var(--energy); font-size: 0.8rem;
+    margin-top: 1.5rem; opacity: 0.7; display: flex; justify-content: center; align-items: center; gap: 8px;
+}
+
+/* ANIMAÇÕES DE SCROLL (SIMPLES) */
+.scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+@keyframes pulseAnim {
+    0% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { opacity: 0.5; box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 1rem; }
+    .status-indicator-header { width: 100%; justify-content: center; }
+    h1 { font-size: 2.5rem; }
+    .amount { font-size: 3rem; }
+}
