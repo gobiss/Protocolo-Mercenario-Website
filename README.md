@@ -22,4 +22,4 @@ Projeto desenvolvido com foco em performance, estética brutalista e conversão.
 Basta clonar o repositório e abrir o arquivo `index.html` no navegador.
 
 ```bash
-git clone [https://github.com/SEU_USUARIO/protocolo-mercenario-site.git](https://github.com/SEU_USUARIO/protocolo-mercenario-site.git)
+git clone https://github.com/gobiss/Protocolo-Mercenario-Website.git
